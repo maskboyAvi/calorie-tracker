@@ -16,6 +16,7 @@
 ## Privacy, AI, and security
 - Keep personal meals, weight history, exercise plans/logs, and settings on-device by default. No cloud sync, analytics, or background AI calls without a new explicit product decision.
 - Voice input means ordinary text fields accept Android keyboard dictation. Do not add a speech-recognition service or call AI to transcribe.
+- Food photo analysis has an optional context text field for ingredients, amounts, cooking methods, oil/ghee, serving size, or corrections. The field is a normal text input; photo plus context must be sent together in one Firebase AI Logic request only after the user taps Analyze. Text-only analysis must also work without an image.
 - AI is opt-in and user-triggered through Firebase AI Logic with the Gemini Developer API free tier only, when eligible. Require App Check; do not link billing or use paid services. If eligibility, free quota, or connectivity is unavailable, preserve a manual workflow.
 - Never embed a Gemini secret, private API key, token, or signing credential in the app. Do not send full profile or weight history to AI. Show the proposed payload/purpose, label uncertainty, and let users inspect and correct every AI-proposed entry before saving.
 - Request platform permissions only for a user-invoked feature, and handle denial gracefully. Keep selected photos transient unless the user chooses to save them.

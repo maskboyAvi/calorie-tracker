@@ -1,17 +1,28 @@
-# calorie_tracker
+# NutriTrack
 
-A new Flutter project.
+Simple tracking. Healthier days.
 
-## Getting Started
+An offline-first personal Android app for food and nutrition logging, weight trends, workouts, and running. Food, weight, goals, and activity records are stored in a local SQLite database. Optional AI analysis is explicitly user-triggered; manual logging works without Firebase, network access, an API key, or a subscription.
 
-This project is a starting point for a Flutter application.
+## Run and validate
 
-A few resources to get you started if this is your first Flutter project:
+```sh
+flutter pub get
+flutter analyze
+flutter test
+flutter run
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Build a debug APK:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+flutter build apk --debug
+```
+
+The APK is written to `build/app/outputs/flutter-apk/app-debug.apk`.
+
+## Gemini AI setup
+
+AI requests use the API key entered by the user in **Settings → AI Setup**, sent directly to Google Gemini over HTTPS. Flash-Lite is the default model, and the model can be changed there. Create a key at https://aistudio.google.com/apikey. The key is saved using encrypted platform storage on that installation. Google receives only content submitted for an explicit analysis. Usage and free-tier availability depend on the user's Google AI Studio project and model. Manual food logging works offline without a key.
+
+Firebase AI Logic and App Check debug-token registration are not used by this app. Never commit or log a user's API key.
